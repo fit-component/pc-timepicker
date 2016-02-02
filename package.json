@@ -1,6 +1,6 @@
 {
   "name": "fit-timepicker",
-  "version": "0.2.33",
+  "version": "0.2.38",
   "description": "tb react timepicker",
   "main": "lib/index.js",
   "scripts": {
@@ -18,10 +18,10 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.1",
-    "fit-input": "^1.1.20",
-    "fit-radio": "^1.1.27",
-    "fit-select": "^1.1.15",
-    "fit-style": "^1.1.15",
+    "fit-input": "^1.1.23",
+    "fit-radio": "^1.1.32",
+    "fit-select": "^1.1.18",
+    "fit-style": "^1.1.18",
     "jquery": "^2.1.4",
     "moment": "^2.10.6",
     "react": "^0.14.3",
