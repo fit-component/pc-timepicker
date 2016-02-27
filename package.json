@@ -17,15 +17,9 @@
   "author": "tieba",
   "license": "ISC",
   "dependencies": {
-    "classnames": "^2.2.3",
-    "fit-input": "^1.1.61",
-    "fit-radio": "^1.1.67",
-    "fit-select": "^1.1.45",
-    "fit-style": "^1.1.45",
-    "jquery": "^2.1.4",
-    "moment": "^2.10.6",
     "react": "^0.14.7",
-    "react-date-range": "^0.1.8",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "classnames": "^2.2.1",
+    "moment": "^2.11.1"
   }
 }
