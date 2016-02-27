@@ -1,6 +1,6 @@
 {
   "name": "fit-timepicker",
-  "version": "0.2.79",
+  "version": "0.2.80",
   "description": "tb react timepicker",
   "main": "lib/index.js",
   "scripts": {
