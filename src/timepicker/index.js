@@ -51,7 +51,7 @@ const recentValidTime = (number, filter)=> {
     return 0
 }
 
-export default class FitCalendar extends React.Component {
+export default class Timepicker extends React.Component {
     constructor(props) {
         super(props)
 
@@ -306,6 +306,12 @@ export default class FitCalendar extends React.Component {
     }
 
     render() {
+        const {className, inputOpts, ...others} = this.props
+        const classes = classNames({
+            '_namespace': true,
+            [className]: className
+        })
+
         let containerClass = classNames({
             'container': true,
             [this.state.position]: true,
@@ -333,10 +339,9 @@ export default class FitCalendar extends React.Component {
         })
 
         return (
-            <div className="_namespace"
-                 style={this.props.style}>
+            <div {...others} className={classes}>
                 <Input onFocus={this.handleFocus.bind(this)}
-                    {...this.props.input}
+                    {...inputOpts}
                        icon="clock-o"
                        value={this.state.isChanged?momentObj.format(`HH:mm:ss`):''}/>
 
@@ -390,16 +395,26 @@ export default class FitCalendar extends React.Component {
     }
 }
 
-FitCalendar.defaultProps = {
+Timepicker.defaultProps = {
+    // @desc 内容改变的回调
     onChange: (time)=> {
     },
+
+    // @desc 小时约束
     limitHour: (number)=> {
         return true
     },
+
+    // @desc 分钟约束
     limitMinute: (number)=> {
         return true
     },
+
+    // @desc 秒约束
     limitSecond: (number)=> {
         return true
-    }
+    },
+
+    // @desc 输入框配置
+    inputOpts: {}
 }
