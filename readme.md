@@ -3,5 +3,5 @@
 ---
 
 ````jsx
-npm install fit-datepicker /* or */ fis3 install fit-datepicker
+npm install fit-datepicker
 ````
