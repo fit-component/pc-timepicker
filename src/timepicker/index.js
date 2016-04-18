@@ -370,18 +370,18 @@ export default class Timepicker extends React.Component {
                         </div>
 
                         <div className="time-select-container">
-                            <Select width="65"
+                            <Select width={65}
                                     value={this.state.hour}
                                     onChange={this.handleTimeChange.bind(this,'hour')}>
                                 {this.getHours()}
                             </Select>
-                            <Select width="65"
+                            <Select width={65}
                                     value={this.state.minute}
                                     style={{marginLeft:-1}}
                                     onChange={this.handleTimeChange.bind(this,'minute')}>
                                 {this.getMinutes()}
                             </Select>
-                            <Select width="65"
+                            <Select width={65}
                                     value={this.state.second}
                                     style={{marginLeft:-1}}
                                     onChange={this.handleTimeChange.bind(this,'second')}>
