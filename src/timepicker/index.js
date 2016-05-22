@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 import Input from 'fit-input'
 import classNames from 'classnames'
 import $ from 'jquery'
-import { Radio, RadioGroup } from 'fit-radio'
-import { Select, Option } from 'fit-select'
+import {Radio, RadioGroup} from 'fit-radio'
+import {Select, Option} from 'fit-select'
 import moment from 'moment'
 import './index.scss'
 
@@ -65,19 +65,19 @@ export default class Timepicker extends React.Component {
         second = recentValidTime(second, this.props.limitSecond)
 
         this.state = {
-            show: false,
+            show    : false,
             position: 'bottom',
 
             // 当前移动的 小时/分钟/秒
             moveType: null,
 
             // 当前 时/分/秒 所在角度
-            hourAngle: hourToAngle(hour),
+            hourAngle  : hourToAngle(hour),
             minuteAngle: minuteSecondToAngle(minute),
             secondAngle: minuteSecondToAngle(second),
 
             // 当前 时/分/秒 数值
-            hour: hour,
+            hour  : hour,
             minute: minute,
             second: second,
 
@@ -131,7 +131,7 @@ export default class Timepicker extends React.Component {
 
             this.setState(changedState, ()=> {
                 this.props.onChange(moment({
-                    hour: this.state.hour,
+                    hour  : this.state.hour,
                     minute: this.state.minute,
                     second: this.state.second
                 }))
@@ -149,9 +149,9 @@ export default class Timepicker extends React.Component {
     componentWillReceiveProps(nextProps) {
         if ('hour' in nextProps || 'minute' in nextProps || 'second' in nextProps) {
             this.setState({
-                hour: nextProps.hour || this.state.hour,
-                minute: nextProps.minute || this.state.minute,
-                second: nextProps.second || this.state.second,
+                hour     : nextProps.hour || this.state.hour,
+                minute   : nextProps.minute || this.state.minute,
+                second   : nextProps.second || this.state.second,
                 isChanged: true
             })
         }
@@ -179,7 +179,7 @@ export default class Timepicker extends React.Component {
         }
 
         this.setState({
-            show: true,
+            show    : true,
             position: position
         }, ()=> {
             // 获取时钟中心点
@@ -222,7 +222,7 @@ export default class Timepicker extends React.Component {
 
         this.setState(newState, ()=> {
             this.props.onChange(moment({
-                hour: this.state.hour,
+                hour  : this.state.hour,
                 minute: this.state.minute,
                 second: this.state.second
             }))
@@ -278,12 +278,12 @@ export default class Timepicker extends React.Component {
         switch (value) {
         case 'am':
             this.setState({
-                hour: this.state.hour > 12 ? this.state.hour - 12 : this.state.hour,
-                isAm: true,
+                hour     : this.state.hour > 12 ? this.state.hour - 12 : this.state.hour,
+                isAm     : true,
                 isChanged: true
             }, ()=> {
                 this.props.onChange(moment({
-                    hour: this.state.hour,
+                    hour  : this.state.hour,
                     minute: this.state.minute,
                     second: this.state.second
                 }))
@@ -291,12 +291,12 @@ export default class Timepicker extends React.Component {
             break
         case 'pm':
             this.setState({
-                hour: this.state.hour > 12 ? this.state.hour : this.state.hour + 12,
-                isAm: false,
+                hour     : this.state.hour > 12 ? this.state.hour : this.state.hour + 12,
+                isAm     : false,
                 isChanged: true
             }, ()=> {
                 this.props.onChange(moment({
-                    hour: this.state.hour,
+                    hour  : this.state.hour,
                     minute: this.state.minute,
                     second: this.state.second
                 }))
@@ -309,31 +309,31 @@ export default class Timepicker extends React.Component {
         const {className, inputOpts, ...others} = this.props
         const classes = classNames({
             '_namespace': true,
-            [className]: className
+            [className] : className
         })
 
         let containerClass = classNames({
-            'container': true,
+            'container'          : true,
             [this.state.position]: true,
-            'show': this.state.show,
-            'hide': !this.state.show
+            'show'               : this.state.show,
+            'hide'               : !this.state.show
         })
 
         let hourStyle = {
-            transform: `rotate(${this.state.hourAngle}deg)`,
+            transform : `rotate(${this.state.hourAngle}deg)`,
             transition: this.state.moveType === null ? `all .2s` : `background .1s`
         }
         let minuteStyle = {
-            transform: `rotate(${this.state.minuteAngle}deg)`,
+            transform : `rotate(${this.state.minuteAngle}deg)`,
             transition: this.state.moveType === null ? `all .2s` : `background .1s`
         }
         let secondStyle = {
-            transform: `rotate(${this.state.secondAngle}deg)`,
+            transform : `rotate(${this.state.secondAngle}deg)`,
             transition: this.state.moveType === null ? `all .2s` : `background .1s`
         }
 
         let momentObj = moment({
-            hour: this.state.hour,
+            hour  : this.state.hour,
             minute: this.state.minute,
             second: this.state.second
         })
@@ -351,13 +351,19 @@ export default class Timepicker extends React.Component {
                              className="clock">
                             <div className="hour"
                                  style={hourStyle}
-                                 onMouseDown={this.handleMouseDown.bind(this,'hour')}></div>
+                                 onMouseDown={this.handleMouseDown.bind(this,'hour')}>
+                                <div className="hour-needle"></div>
+                            </div>
                             <div className="minute"
                                  style={minuteStyle}
-                                 onMouseDown={this.handleMouseDown.bind(this,'minute')}></div>
+                                 onMouseDown={this.handleMouseDown.bind(this,'minute')}>
+                                <div className="minute-needle"></div>
+                            </div>
                             <div className="second"
                                  style={secondStyle}
-                                 onMouseDown={this.handleMouseDown.bind(this,'second')}></div>
+                                 onMouseDown={this.handleMouseDown.bind(this,'second')}>
+                                <div className="second-needle"></div>
+                            </div>
                         </div>
 
                         <div className="toolbar">
@@ -370,20 +376,26 @@ export default class Timepicker extends React.Component {
                         </div>
 
                         <div className="time-select-container">
-                            <Select width={65}
+                            <Select label=""
+                                    simple={true}
+                                    style={{margin:0,width:50}}
                                     value={this.state.hour}
                                     onChange={this.handleTimeChange.bind(this,'hour')}>
                                 {this.getHours()}
                             </Select>
-                            <Select width={65}
+                            <span>:</span>
+                            <Select label=""
+                                    simple={true}
+                                    style={{margin:'0 0 0 10px',width:50}}
                                     value={this.state.minute}
-                                    style={{marginLeft:-1}}
                                     onChange={this.handleTimeChange.bind(this,'minute')}>
                                 {this.getMinutes()}
                             </Select>
-                            <Select width={65}
+                            <span>:</span>
+                            <Select label=""
+                                    simple={true}
+                                    style={{margin:'0 0 0 10px',width:50}}
                                     value={this.state.second}
-                                    style={{marginLeft:-1}}
                                     onChange={this.handleTimeChange.bind(this,'second')}>
                                 {this.getSeconds()}
                             </Select>
