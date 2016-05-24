@@ -306,7 +306,7 @@ export default class Timepicker extends React.Component {
     }
 
     render() {
-        const {className, inputOpts, ...others} = this.props
+        const {className, input, ...others} = this.props
         const classes = classNames({
             '_namespace': true,
             [className] : className
@@ -341,7 +341,7 @@ export default class Timepicker extends React.Component {
         return (
             <div {...others} className={classes}>
                 <Input onFocus={this.handleFocus.bind(this)}
-                    {...inputOpts}
+                    {...input}
                        icon="clock-o"
                        value={this.state.isChanged?momentObj.format(`HH:mm:ss`):''}/>
 
@@ -428,5 +428,5 @@ Timepicker.defaultProps = {
     },
 
     // @desc 输入框配置
-    inputOpts: {}
+    input: {}
 }
