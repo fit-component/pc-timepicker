@@ -339,7 +339,7 @@ export default class Timepicker extends React.Component {
         })
 
         return (
-            <div {...others} className={classes}>
+            <div className={classes}>
                 <Input onFocus={this.handleFocus.bind(this)}
                     {...input}
                        icon="clock-o"
