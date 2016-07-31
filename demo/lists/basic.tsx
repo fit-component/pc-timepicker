@@ -1,8 +1,8 @@
-import React from 'react'
-import TimePicker from 'fit-timepicker'
+import * as React from 'react'
+import TimePicker from '../../src'
 
-export default class Demo extends React.Component {
-    handleChange(moment) {
+export default class Demo extends React.Component <any, any> {
+    handleChange(moment:any) {
 
     }
 

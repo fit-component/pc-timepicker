@@ -1,16 +1,16 @@
-import React from 'react'
-import TimePicker from 'fit-timepicker'
+import * as React from 'react'
+import TimePicker from '../../src'
 
-export default class Demo extends React.Component {
-    limitHour(number) {
+export default class Demo extends React.Component <any, any> {
+    limitHour(number:number) {
         return number > 7
     }
 
-    limitMinute(number) {
+    limitMinute(number:number) {
         return number % 2
     }
 
-    limitSecond(number) {
+    limitSecond(number:number) {
         return !(number % 5)
     }
 
