@@ -1,6 +1,6 @@
 {
   "name": "fit-timepicker",
-  "version": "3.1.83",
+  "version": "3.1.84",
   "description": "tb react timepicker",
   "main": "lib/index.js",
   "scripts": {
@@ -19,13 +19,13 @@
   "dependencies": {
     "react": "^0.14.0 || ^15.0.0",
     "react-dom": "^0.14.0 || ^15.0.0",
-    "fit-input": "^5.0.48",
-    "fit-radio": "^3.1.72",
-    "fit-select": "^4.0.61",
+    "fit-input": "^5.0.49",
+    "fit-radio": "^3.1.73",
+    "fit-select": "^4.0.62",
     "classnames": "^2.2.3",
     "jquery": "^1.12.4",
     "moment": "^2.12.0",
-    "fit-transmit-transparently": "^3.1.49"
+    "fit-transmit-transparently": "^3.1.50"
   },
   "typings": "lib/index.d.ts"
 }
